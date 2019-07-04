@@ -33,6 +33,9 @@ bcm_tunnel_term_compatible_mode=1
 
 phy_an_c73=1
 
+ifp_inports_support_enable=1
+port_flex_enable=1
+
 dport_map_port_1=1
 dport_map_port_5=2
 dport_map_port_9=3
