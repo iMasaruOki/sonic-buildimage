@@ -406,6 +406,7 @@ $(SONIC_INSTALL_TARGETS) : $(DEBS_PATH)/%-install : .platform $$(addsuffix -inst
 	if mkdir $(DEBS_PATH)/dpkg_lock &> /dev/null; then
 	{ sudo DEBIAN_FRONTEND=noninteractive dpkg -i $(DEBS_PATH)/$* $(LOG) && rm -d $(DEBS_PATH)/dpkg_lock && break; } || { rm -d $(DEBS_PATH)/dpkg_lock && exit 1 ; }
 	fi
+	sleep 1
 	done
 	$(FOOTER)
 
@@ -472,6 +473,7 @@ $(SONIC_INSTALL_WHEELS) : $(PYTHON_WHEELS_PATH)/%-install : .platform $$(addsuff
 	if mkdir $(PYTHON_WHEELS_PATH)/pip_lock &> /dev/null; then
 	{ sudo -E pip$($*_PYTHON_VERSION) install $(PYTHON_WHEELS_PATH)/$* $(LOG) && rm -d $(PYTHON_WHEELS_PATH)/pip_lock && break; } || { rm -d $(PYTHON_WHEELS_PATH)/pip_lock && exit 1 ; }
 	fi
+	sleep 1
 	done
 	$(FOOTER)
 
