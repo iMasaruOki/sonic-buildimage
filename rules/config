@@ -30,7 +30,7 @@ SONIC_CONFIG_MAKE_JOBS = $(shell nproc)
 
 # SONIC_CONFIG_ENABLE_COLORS - enable colored output in build system.
 # Comment next line to disable:
-# SONIC_CONFIG_ENABLE_COLORS = y
+SONIC_CONFIG_ENABLE_COLORS = y
 
 # DEFAULT_USERNAME - default username for installer build
 DEFAULT_USERNAME = admin
@@ -106,7 +106,7 @@ ENABLE_SFLOW = y
 ENABLE_MGMT_FRAMEWORK = y
 
 # ENABLE_RESTAPI - build docker-sonic-restapi for configuring the switch using REST APIs
-ENABLE_RESTAPI = n
+ENABLE_RESTAPI = y
 
 # ENABLE_NAT - build docker-sonic-nat for nat support
 ENABLE_NAT = y
