@@ -6,6 +6,9 @@ configure() {
 git submodule deinit -f --all
 make init
 make USERNAME=admin PASSWORD=hogehoge configure PLATFORM=broadcom
+cd src/sonic-utilities
+git checkout master
+cd -
 }
 
 apply_patch() {
