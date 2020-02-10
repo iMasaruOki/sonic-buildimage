@@ -9,7 +9,15 @@ make USERNAME=admin PASSWORD=hogehoge configure PLATFORM=broadcom
 }
 
 apply_patch() {
-: # apply local patch for submodule.
+FILES=`ls *.diff`
+if [ "x$FILES" != "x" ]; then
+  for f in $FILES; do
+    DIR=`basename $f .diff`
+    cd src/$DIR
+    patch -p1 < $TOP/$f
+    cd -
+  done
+fi
 }
 
 clean() {
