@@ -1,0 +1,13 @@
+diff --git a/config/nat.py b/config/nat.py
+index 1c30aa8..213a6e0 100644
+--- a/config/nat.py
++++ b/config/nat.py
+@@ -295,7 +295,7 @@ def add_basic(ctx, global_ip, local_ip, nat_type, twice_nat_id):
+             if 'MAX_NAT_ENTRIES' in counter_entry:
+                 max_entries = counter_entry['MAX_NAT_ENTRIES']
+ 
+-        if int(snat_entries) >= int(max_entries):
++        if int(max_entries) != 0 and int(snat_entries) >= int(max_entries):
+             click.echo("Max limit is reached for NAT entries, skipping adding the entry.")
+             entryFound = True
+ 
