@@ -1,0 +1,13 @@
+diff --git a/syncd/syncd.cpp b/syncd/syncd.cpp
+index 4bdb5a4..0836a7d 100644
+--- a/syncd/syncd.cpp
++++ b/syncd/syncd.cpp
+@@ -3228,7 +3228,7 @@ sai_status_t processEvent(
+                 SWSS_LOG_ERROR("attr: %s: %s", fvField(v).c_str(), fvValue(v).c_str());
+             }
+ 
+-            SWSS_LOG_THROW("failed to execute api: %s, key: %s, status: %s",
++            SWSS_LOG_ERROR("failed to execute api: %s, key: %s, status: %s",
+                     op.c_str(),
+                     key.c_str(),
+                     sai_serialize_status(status).c_str());
