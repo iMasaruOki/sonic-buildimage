@@ -1,0 +1,22 @@
+diff --git a/cfgmgr/natmgr.cpp b/cfgmgr/natmgr.cpp
+index 5df7a75..3beeb1a 100644
+--- a/cfgmgr/natmgr.cpp
++++ b/cfgmgr/natmgr.cpp
+@@ -4982,7 +4982,7 @@ void NatMgr::enableNatFeature(void)
+     addDynamicNatRules();
+ 
+     /* Add full-cone PRE-ROUTING DNAT rule in the kernel */
+-    setFullConeDnatIptablesRule(ADD);
++    //setFullConeDnatIptablesRule(ADD);
+ }
+ 
+ /* To disable the NAT Feature */
+@@ -5010,7 +5010,7 @@ void NatMgr::disableNatFeature(void)
+     SWSS_LOG_INFO("Disabled NAT Admin Mode to APPL_DB");
+ 
+     /* Delete full-cone PRE-ROUTING DNAT rule in the kernel */
+-    setFullConeDnatIptablesRule(DELETE);
++    //setFullConeDnatIptablesRule(DELETE);
+ }
+ 
+ /* To parse the received Static NAT Table and save it to cache */
