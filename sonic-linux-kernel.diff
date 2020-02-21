@@ -1,0 +1,34 @@
+diff --git a/Makefile b/Makefile
+index 4d3a28a..6bf651f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,11 +2,10 @@
+ SHELL = /bin/bash
+ .SHELLFLAGS += -e
+ 
+-KERNEL_ABI_MINOR_VERSION = 2
+-KVERSION_SHORT ?= 4.9.0-11-$(KERNEL_ABI_MINOR_VERSION)
++KVERSION_SHORT ?= 4.19.0-0.bpo.6
+ KVERSION ?= $(KVERSION_SHORT)-amd64
+-KERNEL_VERSION ?= 4.9.189
+-KERNEL_SUBVERSION ?= 3+deb9u2
++KERNEL_VERSION ?= 4.19.67
++KERNEL_SUBVERSION ?= 2+deb10u2~bpo9+1
+ kernel_procure_method ?= build
+ 
+ LINUX_HEADER_COMMON = linux-headers-$(KVERSION_SHORT)-common_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_all.deb
+@@ -20,11 +19,11 @@ ifneq ($(kernel_procure_method), build)
+ # Downloading kernel
+ 
+ # TBD, need upload the new kernel packages
+-LINUX_HEADER_COMMON_URL = "https://sonicstorage.blob.core.windows.net/packages/kernel-public/linux-headers-$(KVERSION_SHORT)-common_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_all.deb?sv=2015-04-05&sr=b&sig=JmF0asLzRh6btfK4xxfVqX%2F5ylqaY4wLkMb5JwBJOb8%3D&se=2128-12-23T19%3A05%3A28Z&sp=r"
++LINUX_HEADER_COMMON_URL = "http://ftp.jp.debian.org/debian/pool/main/l/linux/linux-headers-$(KVERSION_SHORT)-common_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_all.deb?sv=2015-04-05&sr=b&sig=JmF0asLzRh6btfK4xxfVqX%2F5ylqaY4wLkMb5JwBJOb8%3D&se=2128-12-23T19%3A05%3A28Z&sp=r"
+ 
+-LINUX_HEADER_AMD64_URL = "https://sonicstorage.blob.core.windows.net/packages/kernel-public/linux-headers-$(KVERSION_SHORT)-amd64_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_amd64.deb?sv=2015-04-05&sr=b&sig=%2FD9a178J4L%2FN3Fi2uX%2FWJaddpYOZqGmQL4WAC7A7rbA%3D&se=2128-12-23T19%3A06%3A13Z&sp=r"
++LINUX_HEADER_AMD64_URL = "http://ftp.jp.debian.org/debian/pool/main/l/linux/linux-headers-$(KVERSION_SHORT)-amd64_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_amd64.deb?sv=2015-04-05&sr=b&sig=%2FD9a178J4L%2FN3Fi2uX%2FWJaddpYOZqGmQL4WAC7A7rbA%3D&se=2128-12-23T19%3A06%3A13Z&sp=r"
+ 
+-LINUX_IMAGE_URL = "https://sonicstorage.blob.core.windows.net/packages/kernel-public/linux-image-$(KVERSION_SHORT)-amd64_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_amd64.deb?sv=2015-04-05&sr=b&sig=oRGGO9xJ6jmF31KGy%2BwoqEYMuTfCDcfILKIJbbaRFkU%3D&se=2128-12-23T19%3A06%3A47Z&sp=r"
++LINUX_IMAGE_URL = "http://ftp.jp.debian.org/debian/pool/main/l/linux-signed-amd64/linux-image-$(KVERSION_SHORT)-amd64_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION)_amd64.deb"
+ 
+ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
+ 	# Obtaining the Debian kernel packages
