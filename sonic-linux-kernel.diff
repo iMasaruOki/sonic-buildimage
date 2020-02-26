@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 4d3a28a..6bf651f 100644
+index 4d3a28a..538a727 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2,11 +2,10 @@
@@ -32,3 +32,25 @@ index 4d3a28a..6bf651f 100644
  
  $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
  	# Obtaining the Debian kernel packages
+@@ -43,19 +42,16 @@ else
+ # Building kernel
+ 
+ DSC_FILE = linux_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION).dsc
+-ORIG_FILE = linux_$(KERNEL_VERSION).orig.tar.xz
+ DEBIAN_FILE = linux_$(KERNEL_VERSION)-$(KERNEL_SUBVERSION).debian.tar.xz
+ BUILD_DIR=linux-$(KERNEL_VERSION)
+ 
+-DSC_FILE_URL = "http://security.debian.org/debian-security/pool/updates/main/l/linux/linux_4.9.189-3+deb9u2.dsc"
+-DEBIAN_FILE_URL = "http://security.debian.org/debian-security/pool/updates/main/l/linux/linux_4.9.189-3+deb9u2.debian.tar.xz"
+-ORIG_FILE_URL = "http://security.debian.org/debian-security/pool/updates/main/l/linux/linux_4.9.189.orig.tar.xz"
++DSC_FILE_URL = "http://deb.debian.org/debian/pool/main/l/linux-signed-amd64/linux-signed-amd64_4.19.67+2+deb10u2~bpo9+1.dsc"
++DEBIAN_FILE_URL = "http://deb.debian.org/debian/pool/main/l/linux-signed-amd64/linux-signed-amd64_4.19.67+2+deb10u2~bpo9+1.tar.xz"
+ 
+ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
+ 	# Obtaining the Debian kernel source
+ 	rm -rf $(BUILD_DIR)
+ 	wget -O $(DSC_FILE) $(DSC_FILE_URL)
+-	wget -O $(ORIG_FILE) $(ORIG_FILE_URL)
+ 	wget -O $(DEBIAN_FILE) $(DEBIAN_FILE_URL)
+ 
+ 	dpkg-source -x $(DSC_FILE)
