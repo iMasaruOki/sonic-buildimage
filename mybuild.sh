@@ -31,8 +31,22 @@ make USERNAME=admin PASSWORD=hogehoge target/sonic-broadcom.bin
 }
 
 ARG="$@"
-if [ "x$ARG" = "x" ]; then
+if [ "x$ARG" = "xall" ]; then
   ARG="configure;apply_patch;clean;build"
+fi
+if [ "x$ARG" = "x" ]; then
+  USAGE=1
+fi
+if [ "x$ARG" = "xhelp" ]; then
+  USAGE=1
+fi
+if [ "x$USAGE" = "x1" ]; then
+  echo "Usage: $0 <stage>"
+  echo " stage: configure, apply_patch, clean, build"
+  echo "        all: run above all stage."
+  echo " To run multiple stage, separate with ;."
+  echo "  e.g. $0 \"configure;build\""
+  exit 1
 fi
 
 eval $ARG
