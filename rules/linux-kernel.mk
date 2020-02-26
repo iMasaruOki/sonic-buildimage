@@ -2,8 +2,8 @@
 
 KVERSION_SHORT = 4.19.0-0.bpo.6
 KVERSION = $(KVERSION_SHORT)-$(CONFIGURED_ARCH)
-KERNEL_VERSION = 4.9.189
-KERNEL_SUBVERSION = 3+deb9u2
+KERNEL_VERSION = 4.19.67
+KERNEL_SUBVERSION = 2+deb10u2~bpo9+1
 ifeq ($(CONFIGURED_ARCH), armhf)
 # Override kernel version for ARMHF as it uses arm MP (multi-platform) for short version
 KVERSION = $(KVERSION_SHORT)-armmp
