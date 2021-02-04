@@ -324,6 +324,7 @@ fi
 ## Note: don't install python-apt by pip, older than Debian repo one
 ## Note: fdisk and gpg are needed by fwutil
 sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install      \
+    keepalived              \
     file                    \
     ifmetric                \
     iproute2                \
