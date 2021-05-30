@@ -559,6 +559,12 @@ if [ -f files/image_config/ntp/ntp-systemd-wrapper ]; then
     sudo cp ./files/image_config/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/libexec/ntpsec/
 fi
 
+## Config keepalived
+sudo mkdir -p $FILESYSTEM_ROOT/etc/keepalived/conf.d
+sudo cp ./files/image_config/keepalived/keepalived.conf $FILESYSTEM_ROOT/etc/keepalived/
+sudo cp ./files/image_config/keepalived/vr.conf.j2 $FILESYSTEM_ROOT/etc/keepalived/
+sudo cp ./files/image_config/keepalived/notify.sh $FILESYSTEM_ROOT/etc/keepalived/
+
 ## Version file part 1
 sudo mkdir -p $FILESYSTEM_ROOT/etc/sonic
 if [ -f files/image_config/sonic_release ]; then
