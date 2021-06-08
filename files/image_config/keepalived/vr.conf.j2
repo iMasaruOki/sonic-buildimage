@@ -9,3 +9,4 @@ vrrp_instance {{ IFNAME }} {
     notify_backup "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} BACKUP"
     notify_fault  "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} FAULT"
     notify_stop   "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} STOP"
+}
