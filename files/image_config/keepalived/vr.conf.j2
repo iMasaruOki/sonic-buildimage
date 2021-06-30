@@ -1,9 +1,10 @@
 vrrp_instance {{ IFNAME }} {
     virtual_router_id {{ VRID }}
     state {{ STATE }}
+    native_ipv6
     interface {{ IFNAME }}
     virtual_ipaddress {
-        {{ VIP }}
+        ::ffff:{{ VIP }}
     }
     notify_master "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} MASTER"
     notify_backup "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} BACKUP"
