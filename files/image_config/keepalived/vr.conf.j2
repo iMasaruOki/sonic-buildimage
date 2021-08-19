@@ -6,8 +6,8 @@ vrrp_instance {{ IFNAME }} {
     virtual_ipaddress {
         ::ffff:{{ VIP }}
     }
-    notify_master "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} MASTER {{ DOWNLINK0 }} {{ DOWNLNK1 }}"
-    notify_backup "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} BACKUP {{ DOWNLINK0 }} {{ DOWNLNK1 }}"
-    notify_fault  "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} FAULT {{ DOWNLINK0 }} {{ DOWNLINK1 }}"
-    notify_stop   "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} STOP {{ DOWNLINK0 }} {{ DOWNLINK1 }}"
+    notify_master "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} MASTER {{ DOWNLINK0 | default('') }} {{ DOWNLINK1 | default('') }}"
+    notify_backup "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} BACKUP {{ DOWNLINK0 | default('') }} {{ DOWNLINK1 | default('') }}"
+    notify_fault  "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} FAULT {{ DOWNLINK0 | default('') }} {{ DOWNLINK1 | default('') }}"
+    notify_stop   "/etc/keepalived/notify.sh {{ VIP }} {{ IFNAME }} STOP {{ DOWNLINK0 | default('') }} {{ DOWNLINK1 | default('') }}"
 }
